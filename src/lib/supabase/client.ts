@@ -6,14 +6,12 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 // because another request stole it") and intermittent fetch failures.
 let browserClient: SupabaseClient | undefined
 
-export async function createClient() {
+export function createClient() {
   if (browserClient) return browserClient
 
-  const config = await fetch("/api/config").then(r => r.json());
-
   browserClient = createBrowserClient(
-    config.supabaseUrl,
-    config.supabaseAnonKey
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   )
 
   return browserClient
