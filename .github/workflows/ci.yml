@@ -75,7 +75,7 @@ jobs:
           push: true
           tags: ${{ steps.image_tag.outputs.image_name }}:${{ steps.image_tag.outputs.image_tag }}
           build-args: |
-            NEXT_PUBLIC_SUPABASE_URL=${{ env.NEXT_PUBLIC_SUPABASE_URL }}
-            NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ env.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-            ENCRYPTION_KEY=${{ env.ENCRYPTION_KEY }}
-            META_APP_SECRET=${{ env.META_APP_SECRET }}
+            NEXT_PUBLIC_SUPABASE_URL=${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+            NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+            ENCRYPTION_KEY=${{ vars.ENCRYPTION_KEY }}
+            META_APP_SECRET=${{ vars.META_APP_SECRET }}
