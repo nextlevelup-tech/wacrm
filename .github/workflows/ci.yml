@@ -55,7 +55,7 @@ jobs:
         id: image_tag
         run: |
           SAFE_BRANCH="$(printf '%s' "$GITHUB_REF_NAME" | tr '[:upper:]' '[:lower:]' | sed -E 's#[^a-z0-9._-]+#-#g; s#-+#-#g; s#^-##; s#-$##')"
-          DATE="$(date -u +'%Y-%m-%d-%H-%M')"
+          DATE="$(date -u +'%Y.%m.%d-%H%M')"
           echo "image_name=ghcr.io/${GITHUB_REPOSITORY%%/*}/wacrm" >> "$GITHUB_OUTPUT"
           echo "image_tag=${SAFE_BRANCH}-${DATE}" >> "$GITHUB_OUTPUT"
 
