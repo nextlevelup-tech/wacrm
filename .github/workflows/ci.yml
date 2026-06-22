@@ -51,3 +51,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Generate image tag
+        run: |
+          BRANCH="${GITHUB_REF_NAME//\//-}"
+          DATE="$(date -u +'%Y-%m-%d-%H-%M')"
+          echo "IMAGE_TAG=wacrm:${BRANCH}-${DATE}" >> $GITHUB_ENV
